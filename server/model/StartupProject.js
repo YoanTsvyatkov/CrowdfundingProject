@@ -1,11 +1,15 @@
+//import sqInst from "../util/database.js";
+import dotenv from "dotenv";
+dotenv.config();
 const Sequelize = require("sequelize");
-const sqInst = require("../util/database");
 
 const StartupProject = sqInst.define("StartupProject", {
     ID: {
-        type: Sequelize.CHAR(10),
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.DataTypes.UUIDV4,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     investmentGoal: {
         type: Sequelize.DOUBLE
@@ -26,6 +30,8 @@ const StartupProject = sqInst.define("StartupProject", {
         type: Sequelize.INTEGER,
         allowNull: false
     }
-}, {tableName: "StartupProject"});
+}, { tableName: "StartupProject" });
+
+
 
 module.exports = StartupProject;
