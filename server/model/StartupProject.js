@@ -1,7 +1,8 @@
-//import sqInst from "../util/database.js";
-import dotenv from "dotenv";
-dotenv.config();
-const Sequelize = require("sequelize");
+import sqInst from "../util/database.js";
+import { Sequelize } from "sequelize";
+//import dotenv from "dotenv";
+//dotenv.config();
+//const Sequelize = require("sequelize");
 
 const StartupProject = sqInst.define("StartupProject", {
     ID: {
@@ -34,4 +35,4 @@ const StartupProject = sqInst.define("StartupProject", {
 
 
 
-module.exports = StartupProject;
+export default StartupProject;

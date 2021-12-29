@@ -1,7 +1,8 @@
-//import sqInst from "../util/database.js";
-import dotenv from "dotenv";
-dotenv.config();
-const Sequelize = require("sequelize");
+import sqInst from "../util/database.js";
+//import dotenv from "dotenv";
+//dotenv.config();
+//const Sequelize = require("sequelize");
+import { Sequelize } from "sequelize";
 const InvestmentOrder = sqInst.define("InvestmentOrder", {
     orderID: {
         type: Sequelize.UUID,
@@ -21,4 +22,4 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
     }
 }, { tableName: "InvestmentOrder" });
 
-module.exports = InvestmentOrder;
+export default InvestmentOrder;

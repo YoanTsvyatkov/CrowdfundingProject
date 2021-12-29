@@ -1,7 +1,8 @@
-//import sqInst from "../util/database.js";
-import dotenv from "dotenv";
-dotenv.config();
-const Sequelize = require("sequelize");
+import sqInst from "../util/database.js";
+//import dotenv from "dotenv";
+//dotenv.config();
+//const Sequelize = require("sequelize");
+import { Sequelize } from "sequelize";
 
 const Investor = sqInst.define("Investor", {
     ID: {
@@ -24,4 +25,4 @@ const Investor = sqInst.define("Investor", {
 
 
 
-module.exports = Investor;
+export default Investor;
