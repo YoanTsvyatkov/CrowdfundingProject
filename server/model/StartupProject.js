@@ -26,10 +26,6 @@ const StartupProject = sqInst.define("StartupProject", {
     },
     moneyRaised: {
         type: Sequelize.DOUBLE
-    },
-    sharesIssued: {
-        type: Sequelize.INTEGER,
-        allowNull: false
     }
 }, { tableName: "StartupProject" });
 

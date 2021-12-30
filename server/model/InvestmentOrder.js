@@ -14,9 +14,6 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
     investedAmount: {
         type: Sequelize.DOUBLE
     },
-    sharesBought: {
-        type: Sequelize.DOUBLE
-    },
     investmentType: {
         type: Sequelize.STRING(10)
     }
