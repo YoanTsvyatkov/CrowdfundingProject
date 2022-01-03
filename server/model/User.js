@@ -35,8 +35,11 @@ const User = sqInst.define("User", {
     },
     profileDescription: {
         type: Sequelize.STRING(100)
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
-
-},{ tableName: "User" });
+}, { tableName: "User" });
 
 exports.User = User;
