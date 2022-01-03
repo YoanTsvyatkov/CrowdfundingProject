@@ -1,4 +1,4 @@
-import StartupProject from "./model/StartupProject.js";
+const StartupProject = require( "./model/StartupProject.js");
 
 class ProjectService {
 

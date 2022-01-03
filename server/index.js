@@ -1,11 +1,11 @@
-import express from "express"
-import dotenv from "dotenv"
-import cors from "cors"
-import payment from "./routers/payment-controller.js"
-import sqInst from "./util/database.js"
-import User from "./model/User.js"
-import StartupProject from "./model/StartupProject.js"
-import InvestmentOrder from "./model/InvestmentOrder.js"
+const express = require("express");
+const dotenv = require("dotenv");
+const cors =require("cors");
+const payment = require("./routers/payment-controller.js");
+const sqInst = require ("./util/database.mjs");
+const User = require ("./model/User.js");
+const StartupProject = require("./model/StartupProject.js");
+const InvestmentOrder = require("./model/InvestmentOrder.js");
 
 dotenv.config();
 const app = express();

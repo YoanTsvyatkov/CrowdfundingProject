@@ -1,8 +1,8 @@
-import express from "express";
-import StartupProject from "../model/StartupProject.js";
-import ProjectService from "../service/project-service.js";
+const express = require("express");
+const StartupProject = require("../model/StartupProject.js");
+const ProjectService = require("../service/project-service.js");
 const { Router } = express;
-import dbInit from "../dbInit.js"
+//import dbInit from "../dbInit.js"
 const projectController = Router();
 const dbIn = require("../dbInit");
 const { createStartup } = require("./model/StartupProject");

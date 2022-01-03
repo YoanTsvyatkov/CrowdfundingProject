@@ -1,5 +1,5 @@
-import sqInst from "../util/database.js";
-import { Sequelize } from "sequelize";
+const sqInst = require("../util/database.mjs");
+const { Sequelize } = require ("sequelize");
 
 const StartupProject = sqInst.define("StartupProject", {
     ID: {
