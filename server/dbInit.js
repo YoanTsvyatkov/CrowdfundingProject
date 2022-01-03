@@ -1,8 +1,6 @@
-import sqInst from "./util/database.js" ;
 import User from "./model/User.js";
 import InvestmentOrder from "./model/InvestmentOrder.js";
 import StartupProject from "./model/StartupProject.js";
-import Categories from "./model/Categories.js";
 
 //CREATE
 async function createStartup(investmentGoal, category, descriptionOfIdea, 
@@ -135,23 +133,3 @@ function availableShares(moneyRaised, priceOfOneShare, sharesIssued)
     const availableShares = sharesIssued - (moneyRaised/priceOfOneShare);
     return availableShares;
 }
-
-
-
-//init();
-/*
-createUser("Jack", "Murry", 32, "electrical engineer", "jack.murry@gmail.com", "0123456789", "");
-createStartup(10000, Categories.Technology, "e-bike startup", "eCoB", 0, 10000 , (await getUserByEmail("jack.murry@gmail.com")).profileID);
-createUser("Josh", "Murry", 32, "electrical engineer", "josh.murry@gmail.com", "0123456788", "");
-*/
-
-//invest(19.50, "eCoB", (await getUserByEmail("jack.murry@gmail.com")).profileID);
-
-
-/*
-sqInst.sync({force: true}).then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
-});
-*/

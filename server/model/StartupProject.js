@@ -1,7 +1,5 @@
 import sqInst from "../util/database.js";
 import { Sequelize } from "sequelize";
-import User from "./model/User.js";
-import InvestmentOrder from "./model/InvestmentOrder.js";
 
 const StartupProject = sqInst.define("StartupProject", {
     ID: {
@@ -51,8 +49,5 @@ const StartupProject = sqInst.define("StartupProject", {
         }
     }
 }, { tableName: "StartupProject" });
-
-StartupProject.hasMany(InvestmentOrder, { foreignKey: 'startupID', sourceKey: 'ID' });
-StartupProject.belongsTo(User, {foreignKey: 'creatorID', sourceKey: 'profileID'});
 
 export default StartupProject;
