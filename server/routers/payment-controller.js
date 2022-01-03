@@ -1,8 +1,17 @@
 import express from "express"
 import Stripe from "stripe"
+import dotenv from "dotenv"
+import path from "path"
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const envPath = path.resolve(__dirname, "..", ".env")
+
+dotenv.config({path: envPath});
 
 const { Router } = express;
-const stripe = Stripe('sk_test_51KBLZ1He6HcPaamicMRz49bXwe8Rsz4he3z5ZR4mIEj8tC6ixXirdH7m4Rv5ROGWTNUj1isEyuA6PeFMglmrM2iA00HxZpMD4b')
+const stripe = Stripe(process.env.SECRET)
+console.log("Secret " + process.env.SECRET)
 const paymentController = Router();
 
 paymentController.post("/checkout", async (req, res) => {
