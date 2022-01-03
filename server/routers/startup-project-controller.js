@@ -1,12 +1,11 @@
 const express = require("express");
 const { StartupProject } = require("../model/StartupProject.js");
-const { ProjectService }  = require("../service/project-service.js");
+const { ProjectService } = require("../service/project-service.js");
 const { Router } = express;
-//import dbInit from "../dbInit.js"
 const projectController = Router();
 const projectservice = new ProjectService();
 
-projectController.post("/project", async (req, res) => {
+projectController.post("/project", async(req, res) => {
 
     if (!req.body.investmentGoal ||
         !req.body.category ||
@@ -30,13 +29,9 @@ projectController.post("/project", async (req, res) => {
 
 
 projectController.put("/project", (req, res) => {
-   const project=projectservice.updateStartupProject(req.params.startupProject);
+    const project = projectservice.updateStartupProject(req.params.startupProject);
     return res.send(project);
 })
-
-
-
-
 
 projectController.delete("/project/:id", (req, res) => {
     try {
@@ -49,4 +44,4 @@ projectController.delete("/project/:id", (req, res) => {
     }
 })
 
-exports.projectController =  projectController;
+exports.projectController = projectController;

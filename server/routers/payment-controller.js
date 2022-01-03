@@ -27,4 +27,4 @@ paymentController.post("/checkout", async (req, res) => {
       res.redirect(303, session.url);
 })
 
-module.exports.paymentController=paymentController;
+exports.paymentController=paymentController;
