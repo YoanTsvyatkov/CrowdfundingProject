@@ -1,17 +1,8 @@
-import express from "express"
-import Stripe from "stripe"
-import dotenv from "dotenv"
-import path from "path"
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const envPath = path.resolve(__dirname, "..", ".env")
-
-dotenv.config({path: envPath});
+const express = require("express");
+const Stripe =require("stripe");
 
 const { Router } = express;
-const stripe = Stripe(process.env.SECRET)
-console.log("Secret " + process.env.SECRET)
+const stripe = Stripe('pk_test_51KBLZ1He6HcPaami8OlgWuZD3dHu8kLCm3aqeZ6US9u7vYBi1RrO4D67tlqYey9f0TmQQy7UlBdy9UILBtdDiimt00RAngcDh3')
 const paymentController = Router();
 
 paymentController.post("/checkout", async (req, res) => {
@@ -36,4 +27,4 @@ paymentController.post("/checkout", async (req, res) => {
       res.redirect(303, session.url);
 })
 
-export default paymentController;
+exports.paymentController=paymentController;
