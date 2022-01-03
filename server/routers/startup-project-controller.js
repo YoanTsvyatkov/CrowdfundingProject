@@ -33,10 +33,6 @@ projectController.put("/project", (req, res) => {
     return res.send(project);
 })
 
-
-
-
-
 projectController.delete("/project/:id", (req, res) => {
     try {
         projectController.deleteStartupProjectByID(req.params.id);
