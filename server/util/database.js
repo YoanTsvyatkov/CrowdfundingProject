@@ -1,0 +1,15 @@
+import dotenv from "dotenv";
+import { Sequelize } from "sequelize";
+import path from "path"
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const envPath = path.resolve(__dirname, "..", ".env")
+
+dotenv.config({path: envPath});
+const sqInst = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD,{
+    dialect: process.env.DB_CONNECTION,
+    host: process.env.DB_HOST,
+});
+export default sqInst;
