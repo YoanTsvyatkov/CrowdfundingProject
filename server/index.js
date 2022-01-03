@@ -1,12 +1,13 @@
-import express from "express"
-import dotenv from "dotenv"
-import cors from "cors"
-import payment from "./routers/payment-controller.js"
-import sqInst from "./util/database.js"
-import User from "./model/User.js"
-import StartupProject from "./model/StartupProject.js"
-import InvestmentOrder from "./model/InvestmentOrder.js"
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const { paymentController } = require("./routers/payment-controller");
+const { sqInst } = require("./util/database");
+const { User } = require("./model/User");
+const { StartupProject } = require("./model/StartupProject");
+const { InvestmentOrder } = require("./model/InvestmentOrder");
 
+console.log();
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -16,7 +17,7 @@ function initRouters(path, routhers) {
   app.use(path, routhers);
 }
 
-initRouters("/api/", [payment]);
+initRouters("/api/", [paymentController]);
 
 app.all("/*", (req, res) => {
   res.sendStatus(404);
@@ -27,6 +28,7 @@ const createRelationships = () => {
   StartupProject.belongsTo(User, { foreignKey: 'creatorID', sourceKey: 'profileID' });
   InvestmentOrder.belongsTo(User, { foreignKey: 'userID', sourceKey: 'profileID' });
   InvestmentOrder.belongsTo(StartupProject, { foreignKey: 'startupID', sourceKey: 'ID' });
+  console.log(User);
   User.hasMany(InvestmentOrder, { foreignKey: 'userID', sourceKey: 'profileID' });
   User.hasMany(StartupProject, { foreignKey: 'creatorID', sourceKey: 'profileID' });
 }

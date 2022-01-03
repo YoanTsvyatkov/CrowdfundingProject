@@ -1,5 +1,5 @@
-import sqInst from "../util/database.js";
-import { Sequelize } from "sequelize";
+const { sqInst } = require("../util/database");
+const { Sequelize } = require ("sequelize");
 
 const InvestmentOrder = sqInst.define("InvestmentOrder", {
     orderID: {
@@ -32,4 +32,4 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
 
 }, { tableName: "InvestmentOrder" });
 
-export default InvestmentOrder;
+exports.InvestmentOrder =  InvestmentOrder;
