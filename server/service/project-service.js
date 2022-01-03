@@ -1,9 +1,13 @@
-const { StartupProject } = require( "../model/StartupProject");
+const { StartupProject } = require("../model/StartupProject");
 
 class ProjectService {
-
-    async createStartup(investmentGoal, category, descriptionOfIdea,
-        projectTitle, moneyRaised, sharesIssued, creatorID) {
+    async createStartup(investmentGoal,
+        category,
+        descriptionOfIdea,
+        projectTitle,
+        moneyRaised,
+        sharesIssued,
+        creatorID) {
         const priceOfOneShare = investmentGoal / sharesIssued;
         const startup = StartupProject.build({
             investmentGoal: investmentGoal,
@@ -34,21 +38,19 @@ class ProjectService {
         return startup;
     }
 
-    async updateStartupProject(startupProject) {
-        const oldStartup = await StartupProject.findOne({ where: { ID: startupProject.ID } });
-        await oldStartup.update({
-            investmentGoal: startupProject.investmentGoal,
-            descriptionOfIdea: startupProject.descriptionOfIdea,
-            sharesIssue: startupProject.sharesIssued,
-            moneyRaised: startupProject.moneyRaised,
-            availableShares: startupProject.availableShares
+    async updateStartupProject(startupProject, id) {
+        await StartupProject.update(startupProject, {
+            where: { ID: id }
         })
-        return oldStartup.toJSON();
+
+        return await this.getStartupProjectByID(id)
     }
 
     async deleteStartupProjectByID(ID) {
         const toDelete = await StartupProject.findOne({ where: { ID: ID } });
-        toDelete.destroy();
+        await toDelete.destroy();
+
+        return toDelete.toJSON();
     }
 
     async getProjects() {
@@ -57,4 +59,4 @@ class ProjectService {
     }
 }
 
-exports.ProjectService =  ProjectService;
+exports.ProjectService = ProjectService;

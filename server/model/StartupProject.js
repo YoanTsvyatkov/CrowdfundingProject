@@ -1,5 +1,5 @@
 const { sqInst } = require("../util/database");
-const { Sequelize } = require ("sequelize");
+const { Sequelize } = require("sequelize");
 
 const StartupProject = sqInst.define("StartupProject", {
     ID: {
