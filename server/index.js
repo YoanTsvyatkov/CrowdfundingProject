@@ -6,7 +6,7 @@ const { sqInst } = require("./util/database");
 const { User } = require("./model/User");
 const { StartupProject } = require("./model/StartupProject");
 const { InvestmentOrder } = require("./model/InvestmentOrder");
-
+const { projectController } = require("./routers/startup-project-controller")
 console.log();
 dotenv.config();
 const app = express();
@@ -17,7 +17,7 @@ function initRouters(path, routhers) {
   app.use(path, routhers);
 }
 
-initRouters("/api/", [paymentController]);
+initRouters("/api/", [paymentController,projectController]);
 
 app.all("/*", (req, res) => {
   res.sendStatus(404);
