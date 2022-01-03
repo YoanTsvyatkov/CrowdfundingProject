@@ -1,4 +1,4 @@
-const StartupProject = require( "./model/StartupProject.js");
+const StartupProject = require( "./model/StartupProject");
 
 class ProjectService {
 
@@ -56,4 +56,4 @@ class ProjectService {
     }
 }
 
-export default ProjectService
+exports.ProjectService =  ProjectService;

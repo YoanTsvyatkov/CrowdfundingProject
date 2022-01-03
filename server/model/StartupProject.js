@@ -1,4 +1,4 @@
-const sqInst = require("../util/database.mjs");
+const { sqInst } = require("../util/database");
 const { Sequelize } = require ("sequelize");
 
 const StartupProject = sqInst.define("StartupProject", {
@@ -50,4 +50,4 @@ const StartupProject = sqInst.define("StartupProject", {
     }
 }, { tableName: "StartupProject" });
 
-export default StartupProject;
+exports.StartupProject = StartupProject;

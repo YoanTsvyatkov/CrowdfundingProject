@@ -1,4 +1,4 @@
-const sqInst = require("../util/database.mjs");
+const { sqInst } = require("../util/database");
 const { Sequelize } = require ("sequelize");
 
 const InvestmentOrder = sqInst.define("InvestmentOrder", {
@@ -32,4 +32,4 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
 
 }, { tableName: "InvestmentOrder" });
 
-export default InvestmentOrder;
+exports.InvestmentOrder =  InvestmentOrder;

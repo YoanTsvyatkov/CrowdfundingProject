@@ -1,8 +1,7 @@
-const sqInst = require("../util/database.mjs");
-const { Sequelize } = require ("sequelize");
+const { sqInst } = require("../util/database");
+const { Sequelize } = require("sequelize");
 
 const User = sqInst.define("User", {
-
     profileID: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.DataTypes.UUIDV4,
@@ -38,6 +37,6 @@ const User = sqInst.define("User", {
         type: Sequelize.STRING(100)
     }
 
-}, { tableName: "User" });
+},{ tableName: "User" });
 
-export default User;
+exports.User = User;

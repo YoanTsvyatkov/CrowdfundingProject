@@ -57,4 +57,4 @@ projectController.delete("/project/:id", (req, res) => {
     }
 })
 
-export default projectController;
+module.exports.projectController =  projectController;
