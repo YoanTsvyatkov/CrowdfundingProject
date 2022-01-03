@@ -1,8 +1,7 @@
 import sqInst from "../util/database.js";
-//import dotenv from "dotenv";
-//dotenv.config();
-//const Sequelize = require("sequelize");
 import { Sequelize } from "sequelize";
+
+
 const InvestmentOrder = sqInst.define("InvestmentOrder", {
     orderID: {
         type: Sequelize.UUID,
@@ -16,7 +15,23 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
     },
     investmentType: {
         type: Sequelize.STRING(10)
-    }
+    },
+    userID: {
+        type: Sequelize.UUID, // The data type defined here and 
+        references: {
+           model: 'User',
+           key: 'profileID'
+        }
+     },
+     startupID:{
+        type: Sequelize.UUID, // The data type defined here and 
+        references: {
+           model: 'StartupProject',
+           key: 'ID'
+        }
+     }
+
 }, { tableName: "InvestmentOrder" });
+
 
 export default InvestmentOrder;

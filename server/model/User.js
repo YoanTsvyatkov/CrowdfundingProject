@@ -1,12 +1,8 @@
 import sqInst from "../util/database.js";
 import { Sequelize } from "sequelize";
-//import dotenv from "dotenv";
-//dotenv.config();
 
-//const { INTEGER } = require("sequelize");
-//const Sequelize = require("sequelize");
 
-const StartupCreator = sqInst.define("StartupCreator", {
+const User = sqInst.define("User", {
 
     profileID: {
         type: Sequelize.UUID,
@@ -16,10 +12,12 @@ const StartupCreator = sqInst.define("StartupCreator", {
         unique: true
     },
     firstName: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        allowNull:false
     },
     lastName: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        allowNull: false
     },
     age: {
         type: Sequelize.INTEGER
@@ -28,16 +26,19 @@ const StartupCreator = sqInst.define("StartupCreator", {
         type: Sequelize.STRING(20)
     },
     email: {
-        type: Sequelize.STRING(25)
+        type: Sequelize.STRING(25),
+        allowNull: false,
+        unique: true
     },
     phoneNumber: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        allowNull: false,
+        unique: true
     },
     profileDescription: {
         type: Sequelize.STRING(100)
     }
-}, { tableName: "StartupCreator" });
+    
+}, { tableName: "User" });
 
-
-
-export default StartupCreator;
+export default User;
