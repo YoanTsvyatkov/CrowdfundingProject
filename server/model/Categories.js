@@ -6,4 +6,4 @@ const Categories = Object.freeze({
     "Music and Arts": "Music and Arts"
 });
 
-export default Categories;
+exports.Categories = Categories;

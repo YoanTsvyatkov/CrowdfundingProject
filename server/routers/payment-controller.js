@@ -1,5 +1,5 @@
-import express from "express"
-import Stripe from "stripe"
+const express = require("express");
+const Stripe =require("stripe");
 
 const { Router } = express;
 const stripe = Stripe('sk_test_51KBLZ1He6HcPaamicMRz49bXwe8Rsz4he3z5ZR4mIEj8tC6ixXirdH7m4Rv5ROGWTNUj1isEyuA6PeFMglmrM2iA00HxZpMD4b')
@@ -27,4 +27,4 @@ paymentController.post("/checkout", async (req, res) => {
       res.redirect(303, session.url);
 })
 
-export default paymentController;
+module.exports.paymentController=paymentController;
