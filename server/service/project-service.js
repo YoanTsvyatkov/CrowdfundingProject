@@ -1,4 +1,4 @@
-const StartupProject = require( "./model/StartupProject");
+const { StartupProject } = require( "../model/StartupProject");
 
 class ProjectService {
 
@@ -36,13 +36,14 @@ class ProjectService {
 
     async updateStartupProject(startupProject) {
         const oldStartup = await StartupProject.findOne({ where: { ID: startupProject.ID } });
-        oldStartup.update({
+        await oldStartup.update({
             investmentGoal: startupProject.investmentGoal,
             descriptionOfIdea: startupProject.descriptionOfIdea,
             sharesIssue: startupProject.sharesIssued,
             moneyRaised: startupProject.moneyRaised,
             availableShares: startupProject.availableShares
         })
+        return oldStartup.toJSON();
     }
 
     async deleteStartupProjectByID(ID) {

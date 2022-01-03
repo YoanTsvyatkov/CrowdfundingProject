@@ -1,12 +1,10 @@
 const express = require("express");
-const StartupProject = require("../model/StartupProject.js");
-const ProjectService = require("../service/project-service.js");
+const { StartupProject } = require("../model/StartupProject.js");
+const { ProjectService }  = require("../service/project-service.js");
 const { Router } = express;
 //import dbInit from "../dbInit.js"
 const projectController = Router();
-const dbIn = require("../dbInit");
-const { createStartup } = require("./model/StartupProject");
-const projectservice = ProjectService();
+const projectservice = new ProjectService();
 
 projectController.post("/project", async (req, res) => {
 
@@ -30,26 +28,20 @@ projectController.post("/project", async (req, res) => {
     return res.send(project);
 })
 
-projectController.get('/project/:title', (req, res) => {
-    try {
-        projectservice.getStartupProjectByTitle(req.params.title);
-    } catch {
-        err => {
-            res.sendStatus(500);
-        }
-    }
-})
-
 
 projectController.put("/project", (req, res) => {
-    projectservice.
-        updateStartupProject(req.params.startupProject);
+   const project=projectservice.updateStartupProject(req.params.startupProject);
+    return res.send(project);
 })
+
+
+
 
 
 projectController.delete("/project/:id", (req, res) => {
     try {
-        deleteStartupProjectByID(req.params.id);
+        projectController.deleteStartupProjectByID(req.params.id);
+
     } catch {
         err => {
             res.sendStatus(500);
@@ -57,4 +49,4 @@ projectController.delete("/project/:id", (req, res) => {
     }
 })
 
-module.exports.projectController =  projectController;
+exports.projectController =  projectController;
