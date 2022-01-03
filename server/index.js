@@ -36,7 +36,7 @@ const createRelationships = () => {
 (async() => {
     try {
         createRelationships()
-        await sqInst.sync({ force: true })
+        await sqInst.sync()
         app.listen(process.env.PORT, () => {
             console.log(`Started server`);
         });

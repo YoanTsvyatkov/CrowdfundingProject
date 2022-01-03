@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^7.0.0-alpha.4",
+    "sequelize-file": "^0.3.0",
     "stripe": "^8.195.0"
   }
 }
