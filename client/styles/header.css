@@ -1,0 +1,62 @@
+body {
+    font-family: Poppins;
+    background: #000000;
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h4 {
+    margin-top: 5%;
+    margin-bottom: 0%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.topNavigation {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 5%;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftNavOptions {
+    display: flex;
+}
+
+.rightNavOptions {
+    display: flex;
+}
+
+#signUpButton {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 24px;
+    border-radius: 12px;
+    justify-self: center;
+    margin-top: 3%;
+    height: 28vh;
+    color: white;
+    width: 12vw;
+    border-color: #813772;
+    background-color: #813772;
+}
+
+@media screen and (max-width: 820px) {
+    .topNavigation {
+        font-size: 14px;
+    }
+
+    #signUpButton {
+        font-size: 14px;
+    }
+}
