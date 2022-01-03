@@ -28,7 +28,6 @@ const createRelationships = () => {
   StartupProject.belongsTo(User, { foreignKey: 'creatorID', sourceKey: 'profileID' });
   InvestmentOrder.belongsTo(User, { foreignKey: 'userID', sourceKey: 'profileID' });
   InvestmentOrder.belongsTo(StartupProject, { foreignKey: 'startupID', sourceKey: 'ID' });
-  console.log(User);
   User.hasMany(InvestmentOrder, { foreignKey: 'userID', sourceKey: 'profileID' });
   User.hasMany(StartupProject, { foreignKey: 'creatorID', sourceKey: 'profileID' });
 }
@@ -37,7 +36,6 @@ const createRelationships = () => {
   try {
     createRelationships()
     await sqInst.sync({ force: true })
-    // createUser("Jack", "Murry", 32, "electrical engineer", "jack.murry@gmail.com", "0123456789", "");
     app.listen(process.env.PORT, () => {
       console.log(`Started server`);
     });

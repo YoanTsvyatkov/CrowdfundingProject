@@ -1,11 +1,9 @@
 const express = require("express");
-const StartupProject = require("../model/StartupProject.js");
-const ProjectService = require("../service/project-service.js");
+const {StartupProject} = require("../model/StartupProject.js");
+const {ProjectService} = require("../service/project-service.js");
 const { Router } = express;
-//import dbInit from "../dbInit.js"
 const projectController = Router();
-const dbIn = require("../dbInit");
-const { createStartup } = require("./model/StartupProject");
+const { StartupProject } = require("./model/StartupProject");
 const projectservice = ProjectService();
 
 projectController.post("/project", async (req, res) => {
