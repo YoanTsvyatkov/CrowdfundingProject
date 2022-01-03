@@ -21,7 +21,7 @@ input {
     margin-bottom: 2%;
 }
 
-.mainLoginSection {
+.mainSignUpSection {
     background: white;
     border-radius: 18px;
     font-weight: 600;
@@ -53,11 +53,11 @@ input {
     margin-top: 0;
 }
 
-#loginButton {
+#createAccountButton {
     width: 100%;
     height: 4vh;
-    bottom:0;
-    margin-top:5%;
+    bottom: 0;
+    margin-top: 5%;
     font-weight: 800;
     border-radius: 24px;
     background-image: linear-gradient(to right, #062F4F 0%, #813772 49%, #B82601 100%);
@@ -68,7 +68,7 @@ input {
     color: white;
 }
 
-.goToSignUp{
+.goToLogin {
     display: flex;
     flex-direction: row;
     margin-right: auto;
@@ -76,23 +76,23 @@ input {
     align-self: flex-end;
 }
 
-#signUpLabel {
+#loginLabel {
     font-weight: 800;
     margin-right: 7px;
 }
 
-#signUpButton {
+#loginButton {
     color: #813772;
 }
 
-@media screen and (max-width: 820px) { 
-    .mainLoginSection {
+@media screen and (max-width: 820px) {
+    .mainSignUpSection {
         width: 50%;
     }
 }
 
-@media screen and (max-width: 380px) { 
-    .mainLoginSection {
+@media screen and (max-width: 380px) {
+    .mainSignUpSection {
         width: 65%;
     }
 }
