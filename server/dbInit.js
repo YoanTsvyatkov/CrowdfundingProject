@@ -4,24 +4,6 @@ import InvestmentOrder from "./model/InvestmentOrder.js";
 import StartupProject from "./model/StartupProject.js";
 import Categories from "./model/Categories.js";
 
-
-
-async function init()
-{
-    User.hasMany(InvestmentOrder, { foreignKey: 'userID', sourceKey: 'profileID' });
-    InvestmentOrder.belongsTo(User, { foreignKey: 'userID', sourceKey: 'profileID' });
-    StartupProject.hasMany(InvestmentOrder, { foreignKey: 'startupID', sourceKey: 'ID' });
-    InvestmentOrder.belongsTo(StartupProject, { foreignKey: 'startupID', sourceKey: 'ID' });
-    User.hasMany(StartupProject, {foreignKey: 'creatorID', sourceKey: 'profileID'});
-    StartupProject.belongsTo(User, {foreignKey: 'creatorID', sourceKey: 'profileID'});
-    pushToDb();
-}
-
-async function pushToDb() {
-   const dbSync = await sqInst.sync({force: true});
-   console.log(dbSync);
-}
-
 //CREATE
 async function createStartup(investmentGoal, category, descriptionOfIdea, 
     projectTitle, moneyRaised, sharesIssued,creatorID)

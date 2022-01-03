@@ -1,6 +1,7 @@
 import sqInst from "../util/database.js";
 import { Sequelize } from "sequelize";
-
+import User from "./User.js";
+import StartupProject from "./StartupProject.js";
 
 const InvestmentOrder = sqInst.define("InvestmentOrder", {
     orderID: {
@@ -33,5 +34,7 @@ const InvestmentOrder = sqInst.define("InvestmentOrder", {
 
 }, { tableName: "InvestmentOrder" });
 
+InvestmentOrder.belongsTo(User, { foreignKey: 'userID', sourceKey: 'profileID' });
+InvestmentOrder.belongsTo(StartupProject, { foreignKey: 'startupID', sourceKey: 'ID' });
 
 export default InvestmentOrder;

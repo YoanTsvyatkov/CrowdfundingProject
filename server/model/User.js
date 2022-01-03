@@ -1,6 +1,7 @@
 import sqInst from "../util/database.js";
 import { Sequelize } from "sequelize";
-
+import InvestmentOrder from "./model/InvestmentOrder.js";
+import StartupProject from "./model/StartupProject.js";
 
 const User = sqInst.define("User", {
 
@@ -13,7 +14,7 @@ const User = sqInst.define("User", {
     },
     firstName: {
         type: Sequelize.STRING(10),
-        allowNull:false
+        allowNull: false
     },
     lastName: {
         type: Sequelize.STRING(10),
@@ -38,7 +39,10 @@ const User = sqInst.define("User", {
     profileDescription: {
         type: Sequelize.STRING(100)
     }
-    
+
 }, { tableName: "User" });
+
+User.hasMany(InvestmentOrder, { foreignKey: 'userID', sourceKey: 'profileID' });
+User.hasMany(StartupProject, { foreignKey: 'creatorID', sourceKey: 'profileID' });
 
 export default User;
