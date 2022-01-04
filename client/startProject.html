@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/startProject.css">
+    <title>CROWDFUNDIGO</title>
+</head>
+
+<body>
+    <embed type="text/html" src="./header.html">
+
+    <div class="mainStartProjectSection">
+        <div class="mainContainer">
+            <h3 id="title">CROWDFUNDIGO</h3>
+            <h1 id="subtitle">Start a Project</h5>
+            
+            <center>Select a Category:</center>
+            <select name="category" id="category">
+                <option value="tech">Technology</option>  
+                <option value="med">Medical</option>  
+                <option value="foodAndCraft">Food and Craft</option>  
+                <option value="gamesAndFilms">Games and Films</option>  
+                <option value="musicAndArts">Music and Arts</option>  
+            </select>
+
+            <center>Describe what your project is about.</center>
+            <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription" required/></textarea>
+
+            <center>What is the name of your project?</center>
+            <input id="name" type="text" placeholder="Project Name" name="projectName" required/>
+            
+            <center>What is your investment goal?</center>
+            <input id="goal" type="text" placeholder="Investment Goal" name="investmentGoal" required/>
+           
+            <button id="createProjectButton" type="submit">Create Project</button>
+        </div>
+    </div>
+    
+    <object type="text/html" data="./footer.html" height="240">
+</body>
+</html>
