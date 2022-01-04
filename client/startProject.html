@@ -17,25 +17,27 @@
             <h3 id="title">CROWDFUNDIGO</h3>
             <h1 id="subtitle">Start a Project</h5>
             
-            <center>Select a Category:</center>
-            <select name="category" id="category">
-                <option value="tech">Technology</option>  
-                <option value="med">Medical</option>  
-                <option value="foodAndCraft">Food and Craft</option>  
-                <option value="gamesAndFilms">Games and Films</option>  
-                <option value="musicAndArts">Music and Arts</option>  
-            </select>
+            <div class="inputs">
+                <center>Select a Category:</center>
+                <select name="category" id="category">
+                    <option value="tech">Technology</option>  
+                    <option value="med">Medical</option>  
+                    <option value="foodAndCraft">Food and Craft</option>  
+                    <option value="gamesAndFilms">Games and Films</option>  
+                    <option value="musicAndArts">Music and Arts</option>  
+                </select>
 
-            <center>Describe what your project is about.</center>
-            <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription" required/></textarea>
+                <center>Describe what your project is about.</center>
+                <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription" required/></textarea>
 
-            <center>What is the name of your project?</center>
-            <input id="name" type="text" placeholder="Project Name" name="projectName" required/>
+                <center>What is the name of your project?</center>
+                <input id="name" type="text" placeholder="Project Name" name="projectName" required/>
+                
+                <center>What is your investment goal?</center>
+                <input id="goal" type="text" placeholder="Investment Goal" name="investmentGoal" required/>
             
-            <center>What is your investment goal?</center>
-            <input id="goal" type="text" placeholder="Investment Goal" name="investmentGoal" required/>
-           
-            <button id="createProjectButton" type="submit">Create Project</button>
+                <button id="createProjectButton" type="submit">Create Project</button>
+            </div>
         </div>
     </div>
     

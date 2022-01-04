@@ -8,16 +8,33 @@ body {
     min-height: 100vh;
 }
 
-input, #category, textarea{
+#amount, #investment{
     height: 5vh;
     border-radius: 24px;
     border-color: #813772;
     border-width: 4px;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     text-align: center;
 }
 
-#category {
+#amountRaised {
+    border:none;
+    appearance: none;
+    border-color: transparent;
+    width: min-content;
+    color: rgba(128, 0, 128, 0.801);
+}
+
+#raised, #amountRaised {
+    color:rgba(128, 0, 128, 0.801);
+    font-size: 20px;
+}
+
+#raised {
+    flex-direction: row;
+}
+
+#investment {
     height: 6vh;
 }
 
@@ -26,7 +43,7 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.mainStartProjectSection {
+.mainSupportSection {
     background: white;
     border-radius: 18px;
     font-weight: 600;
@@ -40,6 +57,14 @@ textarea {
     height: 60%;
 }
 
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -49,32 +74,29 @@ textarea {
     margin-left: 10%;
 }
 
-#title, #subtitle {
+#title, #author {
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 1px;
     font-family: Bodoni -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#author{
+    color: rgba(226, 10, 10, 0.877);
 }
 
 #subtitle {
     margin-top: 0;
 }
 
-.inputs {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
 center {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
+    margin-top: 100px;
     margin-bottom: 15px;
 }
 
-#createProjectButton {
+#investButton {
     width: 100%;
     height: 5vh;
     bottom: 0;
