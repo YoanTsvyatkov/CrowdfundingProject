@@ -8,18 +8,41 @@
     <link rel="stylesheet" href="./styles/header.css">
     <title>CROWDFUNDIGO</title>
 </head>
+
 <body>
     <header class="topNavigation">
         <div class="leftNavOptions">
-            <h4 style="padding-right: 25px;"> Discover </h4>
-            <h4 style="padding: 0px;"><a href="./startProject.html" target=_parent> Start a project </a></h4>
+            <h4 style="padding-right: 25px;" onmouseover="openNav()"> Discover </h4>
+            <h4 style="padding: 0px;"> <a href="./startProject.html" target=_parent>Start a project </a></h4>
         </div>
         <div class="rightNavOptions">
-            <h4 id="login" style="padding-right: 25px;"><a href="./login.html"  target=_parent>Log In</a></h4>
+            <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
             <a href="./register.html" target="_parent">
                 <button id="signUpButton">Sign Up</button>
             </a>
         </div>
     </header>
+
+    <div id="myNav" class="overlay" onmouseleave="closeNav()">
+        <h3 class="title">Categories</h3>
+        <div class="overlay-content">
+            <a href="#">Technology</a>
+            <a href="#">Medical</a>
+            <a href="#">Food and Craft</a>
+            <a href="#">Games and Films</a>
+            <a href="#">Music and Arts</a>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
 </body>
+
 </html>
