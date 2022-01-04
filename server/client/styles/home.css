@@ -1,0 +1,114 @@
+body {
+  font-family: Poppins;
+  background: #000000;
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h4 {
+  margin-top: 5%;
+  margin-bottom: 0%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.mainNavOptions h4 {
+  margin-top: 0%;
+}
+
+.mainHomeSection {
+  background: linear-gradient(to right, #062F4F 0%, #813772 49%, #B82601 100%);
+  border-radius: 18px;
+  font-weight: 600;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+  justify-self: center;
+  width: 75%;
+  height: 50%;
+}
+
+.mainContainter {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#mainSectionTitle {
+  font-size: 72px;
+  margin-top: 5%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mainNavOptions {
+  font-size: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.mainNavOptions h5 {
+  margin-top: 0%;
+
+}
+
+.presentingSection {
+  display: flex;
+  margin: 2%;
+  justify-content: space-between;
+
+}
+
+.presentingDescription {
+  border-radius: 18px;
+  font-size: 18px;
+  background-color: #062F4F;
+  border-color: white;
+  border-width: 4px;
+  padding: 3%;
+  border-style: solid;
+  width: 30%;
+  align-self: center;
+  height: fit-content;
+  text-align: center;
+  opacity: 55%;
+}
+
+.presentingImage {
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 820px) {
+  #mainSectionTitle {
+    font-size: 24px;
+  }
+
+  .presentingDescription {
+    font-size: 9px;
+  }
+
+  .mainNavOptions {
+    font-size: 8px;
+  }
+
+  .topNavigation {
+    font-size: 14px;
+  }
+
+  #signUpButton {
+    font-size: 14px;
+  }
+}

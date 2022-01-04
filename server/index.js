@@ -8,17 +8,20 @@ const { StartupProject } = require("./model/StartupProject");
 const { InvestmentOrder } = require("./model/InvestmentOrder");
 const { projectController } = require("./routers/startup-project-controller")
 const { authController } = require("./routers/auth-controller");
+const bodyParser = require('body-parser');
 
 dotenv.config();
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.static('client'));
+app.use("/api/", paymentController)
 
 function initRouters(path, routhers) {
     app.use(path, routhers);
 }
 
-initRouters("/api/", [paymentController, projectController, authController]);
+app.use(bodyParser.json())
+initRouters("/api/", [projectController, authController]);
 
 app.all("/*", (req, res) => {
     res.sendStatus(404);
@@ -36,7 +39,7 @@ const createRelationships = () => {
 (async() => {
     try {
         createRelationships()
-        await sqInst.sync()
+        await sqInst.sync({ force: true })
         app.listen(process.env.PORT, () => {
             console.log(`Started server`);
         });
