@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/header.css">
+    <script src="./script/general.js" defer></script>
     <title>CROWDFUNDIGO</title>
 </head>
 
@@ -15,10 +14,21 @@
             <h4 style="padding-right: 25px;" onmouseover="openNav()"> Discover </h4>
             <h4 style="padding: 0px;"> <a href="./startProject.html" target=_parent>Start a project </a></h4>
         </div>
-        <div class="rightNavOptions">
+        <div class="rightNavOptionsUnauthorized">
             <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
             <a href="./register.html" target="_parent">
                 <button id="signUpButton">Sign Up</button>
+            </a>
+        </div>
+
+        <div class="rightNavOptionsAuthorized">
+            <h4 style="padding-right: 25px;">
+                <a href="#" target=_parent>
+                    <img src = 'images/user.png' style='vertical-align: top; padding-right: 5px;' width="30px"/> Profile
+                </a>
+            </h4>
+            <a href="./register.html" target="_parent">
+                <button id="logOutButton">Log Out</button>
             </a>
         </div>
     </header>
