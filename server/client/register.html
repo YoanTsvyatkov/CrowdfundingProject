@@ -4,25 +4,63 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/register.css">
+    <link rel="stylesheet" href="./styles/header.css">
     <script src="./script/register.js" defer></script>
+    <script src="./script/general.js" defer></script>
     <title>CROWDFUNDIGO</title>
 </head>
 
 <body>
-    <embed type="text/html" src="./header.html">
+    <header class="topNavigation">
+        <div class="leftNavOptions">
+            <h4 style="padding-right: 25px;" onmouseover="openNav()"> Discover </h4>
+            <h4 style="padding: 0px;"><a href="./startProject.html" target=_parent>Start a project</a></h4>
+        </div>
+        <div class="rightNavOptionsUnauthorized">
+            <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
+            <a href="./register.html" target="_parent">
+                <button id="signUpButton">Sign Up</button>
+            </a>
+        </div>
+
+        <div class="rightNavOptionsAuthorized">
+            <h4 style="padding-right: 25px;">
+                <a href="#" target=_parent>
+                    <img src='images/user.png' style='vertical-align: top; padding-right: 5px;' width="30px" /> Profile
+                </a>
+            </h4>
+            <a href="./register.html" target="_parent">
+                <button id="logOutButton">Log Out</button>
+            </a>
+        </div>
+    </header>
+
+    <div id="myNav" class="overlay" onmouseleave="closeNav()">
+        <h3 class="title">Categories</h3>
+        <div class="overlay-content">
+            <a id="technologyOption" href="#">Technology</a>
+            <a id="medicalOption" href="#">Medical</a>
+            <a id="foodAndCraftOption" href="#">Food and Craft</a>
+            <a id="gamesAndFilmsOption" href="#">Games and Films</a>
+            <a id="musicAndArtsOption" href="#">Music and Arts</a>
+        </div>
+    </div>
+
+    <!-- header up -->
 
     <form id="register-form" action="#" method="POST">
         <div class="mainContainer">
             <h1 id="title">CROWDFUNDIGO</h1>
             <h3 id="subtitle">Sign Up</h3>
 
-            <input id="firstName" type="text" placeholder="First Name" name="firstName" required/>
-            <input id="lastName" type="text" placeholder="Last Name" name="lastName" required/>
-            <input id="email" type="text" placeholder="Email" name="email" required/>
-            <input id="age" type="number" placeholder="Age" name="age" required/>
-            <input id="occupation" type="text" placeholder="Occupation" name="occupation" required/>
-            <input id="phone-number" type="text" placeholder="Phone Number" name="phone-number" required/>
-            <input id="profile-description" type="text" placeholder="Profile Description" name="profile-description" required/>
+            <input id="firstName" type="text" placeholder="First Name" name="firstName" required />
+            <input id="lastName" type="text" placeholder="Last Name" name="lastName" required />
+            <input id="email" type="text" placeholder="Email" name="email" required />
+            <input id="age" type="number" placeholder="Age" name="age" required />
+            <input id="occupation" type="text" placeholder="Occupation" name="occupation" required />
+            <input id="phone-number" type="text" placeholder="Phone Number" name="phone-number" required />
+            <input id="profile-description" type="text" placeholder="Profile Description" name="profile-description"
+                required />
             <input id="password" type="password" placeholder="Password" name="password" required>
 
             <div id="error">
@@ -35,7 +73,8 @@
             </div>
         </div>
     </form>
-    
+
     <object type="text/html" data="./footer.html" height="240">
 </body>
+
 </html>

@@ -8,21 +8,34 @@ body {
     height: 100%;
 }   
 
-.grid-container {
+#project-list-container {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;
   }
   
-  .grid-item {
-    background-color: white;
-    border-radius: 18px;
-    margin-right: 2%;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    color: black;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
+#project-list-item {
+  background-color: black;
+  background: linear-gradient(to bottom, #062F4F 0%, #813772 100%);
+  border-radius: 18px;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#options {
+  display: inline;
+  flex-direction: row;
+  margin-bottom: auto;
+}
+#delete-btn {
+  padding-right: 5px;
+}
+#edit-btn {
+  padding-left: 5px;
+}

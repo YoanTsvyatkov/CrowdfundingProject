@@ -26,11 +26,10 @@ if(startProjectForm != null){
         }
     
         if(validateDescription(description.value) && validateGoal(goal.value)){
-            postRequest("http://localhost:3000/api/startProject",  JSON.stringify(requestBody), 
+            postRequest("http://localhost:3000/api/project",  JSON.stringify(requestBody), 
             (data) => {
                 localStorage.setItem('token', data.token);
                 window.location.replace("home.html");
-
             }, 
             (err) => {
                 showError("Invalid information");
