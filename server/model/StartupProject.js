@@ -18,10 +18,10 @@ const StartupProject = sqInst.define("StartupProject", {
         allowNull: false
     },
     descriptionOfIdea: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(1000)
     },
     projectTitle: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(300),
         allowNull: false,
         unique: true
     },
