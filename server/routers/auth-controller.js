@@ -22,7 +22,10 @@ authController.post("/login", async(req, res) => {
         }
 
         const token = signToken(req.body.email, req.body.password, "24h")
-        return res.send({ token: token });
+        return res.send({
+            token: token,
+            id: user.profileID
+        });
     } catch (error) {
         return res.sendStatus(500);
     }
@@ -53,7 +56,10 @@ authController.post("/register", async(req, res) => {
         )
         const token = signToken(newUser.email, newUser.password, "24h")
 
-        return res.send({ token: token })
+        return res.send({
+            token: token,
+            id: newUser.profileID
+        })
     } catch (error) {
         return res.sendStatus(500);
     }

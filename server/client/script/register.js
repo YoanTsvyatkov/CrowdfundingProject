@@ -10,57 +10,58 @@ const password = document.getElementById('password');
 const error = document.getElementById('error');
 const success = document.getElementById('success');
 
-if(registerForm != null){
+if (registerForm != null) {
     registerForm.addEventListener('submit', (event) => {
         event.preventDefault();
-    
-        if(!validatePhoneNumber(phoneNumber.value)){
+
+        if (!validatePhoneNumber(phoneNumber.value)) {
             showError("Phone number must be 10 characters.");
         }
-      
-    
+
+
         const requestBody = {
-            firstName : firstName.value,
-            lastName : lastName.value,
-            age : age.value,
-            occupation : occupation.value,
+            firstName: firstName.value,
+            lastName: lastName.value,
+            age: age.value,
+            occupation: occupation.value,
             email: email.value,
-            phoneNumber : phoneNumber.value,
-            profileDescription : profileDescription.value,
+            phoneNumber: phoneNumber.value,
+            profileDescription: profileDescription.value,
             password: password.value
         }
-    
-        if(validatePhoneNumber(phoneNumber.value)){
-            postRequest("http://localhost:3000/api/register",  JSON.stringify(requestBody), 
-            (data) => {
-                localStorage.setItem('token', data.token);
-                window.location.replace("home.html");
 
-            }, 
-            (err) => {
-                showError("Invalid email or password");
-            });
+        if (validatePhoneNumber(phoneNumber.value)) {
+            postRequest("http://localhost:3000/api/register", JSON.stringify(requestBody),
+                (data) => {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('id', data.id);
+                    window.location.replace("home.html");
+
+                },
+                (err) => {
+                    showError("Invalid email or password");
+                });
         }
-    });    
+    });
 }
 
-function postRequest(url, body, successCallback, errorCallback){
+function postRequest(url, body, successCallback, errorCallback) {
     fetch(url, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: body
-    })
-    .then(resonse => resonse.json())
-    .then(data => {
-        successCallback(data);
-    }).catch(err => {
-        errorCallback(err);
-    })
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: body
+        })
+        .then(resonse => resonse.json())
+        .then(data => {
+            successCallback(data);
+        }).catch(err => {
+            errorCallback(err);
+        })
 }
 
-function showError(text){
+function showError(text) {
     error.style.display = 'block';
     const textNode = document.createTextNode(text);
     const paragraph = document.getElementById('error-message');
@@ -72,8 +73,8 @@ function showError(text){
     }, 3000)
 }
 
-function validatePhoneNumber(phoneNumber){
-    if(phoneNumber.length < 10){
+function validatePhoneNumber(phoneNumber) {
+    if (phoneNumber.length < 10) {
         return false;
     }
 
