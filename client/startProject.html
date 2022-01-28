@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/startProject.css">
     <title>CROWDFUNDIGO</title>
+    <script src="./script/startProject.js" defer></script>
 </head>
 
 <body>
     <embed type="text/html" src="./header.html">
 
-    <div class="mainStartProjectSection">
+    <form id="startProject-form" action="#" method="POST">
         <div class="mainContainer">
             <h3 id="title">CROWDFUNDIGO</h3>
             <h1 id="subtitle">Start a Project</h5>
@@ -31,15 +32,19 @@
                 <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription" required/></textarea>
 
                 <center>What is the name of your project?</center>
-                <input id="name" type="text" placeholder="Project Name" name="projectName" required/>
+                <input id="projectName" type="text" placeholder="Project Name" name="projectName" required/>
                 
                 <center>What is your investment goal?</center>
                 <input id="goal" type="text" placeholder="Investment Goal" name="investmentGoal" required/>
             
+                <div id="error">
+                    <p id="error-message" style="color: brown;"></p>
+                </div>
+
                 <button id="createProjectButton" type="submit">Create Project</button>
             </div>
         </div>
-    </div>
+    </form>
     
     <object type="text/html" data="./footer.html" height="240">
 </body>
