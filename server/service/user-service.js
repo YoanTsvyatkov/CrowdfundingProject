@@ -26,6 +26,13 @@ class UserService {
         return investor;
     }
 
+    async getUserById(id) {
+        const investorInst = await User.findOne({ where: { profileID: id } });
+        const investor = JSON.parse(JSON.stringify(investorInst));
+        return investor;
+    }
+
+
     async updateUser(user) {
         const oldUser = await User.findOne({ where: { profileID: user.profileID } });
         oldUser.update({

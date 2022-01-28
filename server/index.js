@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const { paymentController } = require("./routers/payment-controller");
+const { userController } = require("./routers/user-controller");
 const { sqInst } = require("./util/database");
 const { User } = require("./model/User");
 const { StartupProject } = require("./model/StartupProject");
@@ -30,7 +31,7 @@ function initRouters(path, routhers) {
 }
 
 app.use(bodyParser.json())
-initRouters("/api/", [projectController, authController, paymentController]);
+initRouters("/api/", [projectController, authController, userController]);
 
 app.all("/*", (req, res) => {
     res.sendStatus(404);
