@@ -3,25 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/projects.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <script src="./script/projects.js" defer></script>
+    <script src="./script/general.js" defer></script>
     <title>CROWDFUNDIGO</title>
 </head>
 
 <body class="main">
-    <object type="text/html" data="./header.html" width="100%"></object>
+    <header class="topNavigation" >
+        <div class="leftNavOptions">
+            <h4 style="padding-right: 25px;" onmouseover="openNav()"> Discover </h4>
+            <h4 style="padding: 0px;"><a href="./startProject.html" target=_parent>Start a project</a></h4>
+        </div>
+        <div class="rightNavOptionsUnauthorized">
+            <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
+            <a href="./register.html" target="_parent">
+                <button id="signUpButton">Sign Up</button>
+            </a>
+        </div>
 
+        <div class="rightNavOptionsAuthorized">
+            <h4 style="padding-right: 25px;">
+                <a href="#" target=_parent>
+                    <img src='images/user.png' style='vertical-align: top; padding-right: 5px;' width="30px" /> Profile
+                </a>
+            </h4>
+            <a href="./register.html" target="_parent">
+                <button id="logOutButton">Log Out</button>
+            </a>
+        </div>
+    </header>
+
+    <div id="myNav" class="overlay" onmouseleave="closeNav()">
+        <h3 class="title">Categories</h3>
+        <div class="overlay-content">
+            <a id="technologyOption" href="#">Technology</a>
+            <a id="medicalOption" href="#">Medical</a>
+            <a id="foodAndCraftOption" href="#">Food and Craft</a>
+            <a id="gamesAndFilmsOption" href="#">Games and Films</a>
+            <a id="musicAndArtsOption" href="#">Music and Arts</a>
+        </div>
+    </div>
+
+    <!-- header up -->
     <div class="mainProjectsSection">
         <object type="text/html" data="./navigation.html" height="240" width="100%"></object>
-
-        <ul id="myList"></ul>
-        <div id="text_table">
-           
-          </div>
+        <div id="project-list-container"></div>
     </div>
     <object type="text/html" data="./footer.html" height="240"></object>
-    <script src="script/projects.js"></script>
-</body>
 
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+</body>
 </html>
