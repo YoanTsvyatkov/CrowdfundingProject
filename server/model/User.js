@@ -21,7 +21,7 @@ const User = sqInst.define("User", {
         type: Sequelize.INTEGER
     },
     occupation: {
-        type: Sequelize.STRING(20)
+        type: Sequelize.STRING(100)
     },
     email: {
         type: Sequelize.STRING(25),
@@ -34,7 +34,7 @@ const User = sqInst.define("User", {
         unique: true
     },
     profileDescription: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(300)
     },
     password: {
         type: Sequelize.STRING,
