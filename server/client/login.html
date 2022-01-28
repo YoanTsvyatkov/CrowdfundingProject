@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/login.css">
+    <title>CROWDFUNDIGO</title>
+    <script src="./script/login.js" defer></script>
+</head>
+
+<body>
+    <embed type="text/html" src="./header.html">
+
+    <form id="login-form" action="#" method="post">
+        <div class="mainContainer">
+            <h1 id="title">CROWDFUNDIGO</h1>
+            <h3 id="subtitle">Log In</h3>
+            <input id="email" type="text" placeholder="Email" name="email" required/>
+            <input id="password" type="password" placeholder="Password" name="password" required>
+            <div id="error">
+                <p id="error-message" style="color: brown;"></p>
+            </div>
+            <button id="loginButton" type="submit">Log in</button>
+            <div class="goToSignUp">
+                <h5 id="signUpLabel">New to CROWDFUNDIGO?</h5>
+                <h5 id="signUpButton"><a href="./register.html" target="_parent">Sign Up</a></h5>
+            </div>
+        </div>
+    </form>
+
+    <object type="text/html" data="./footer.html" height="240">
+</body>
+</html>
