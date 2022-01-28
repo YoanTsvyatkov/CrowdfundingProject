@@ -8,26 +8,29 @@ const { StartupProject } = require("./model/StartupProject");
 const { InvestmentOrder } = require("./model/InvestmentOrder");
 const { projectController } = require("./routers/startup-project-controller")
 const { authController } = require("./routers/auth-controller");
+const { hookController } = require("./routers/hook-controller");
 const bodyParser = require('body-parser');
 const { UserService } = require("./service/user-service.js")
 const { ProjectService } = require("./service/project-service.js");
-const {Categories} = require("./model/Categories.js");
+const { Categories } = require("./model/Categories.js");
 
 const user = new UserService();
 const startup = new ProjectService();
 
 dotenv.config();
+
 const app = express();
 app.use(cors());
 app.use(express.static('client'));
-app.use("/api/", paymentController)
+
+app.use("/api/", hookController)
 
 function initRouters(path, routhers) {
     app.use(path, routhers);
 }
 
 app.use(bodyParser.json())
-initRouters("/api/", [projectController, authController]);
+initRouters("/api/", [projectController, authController, paymentController]);
 
 app.all("/*", (req, res) => {
     res.sendStatus(404);
@@ -43,7 +46,7 @@ const createRelationships = () => {
 }
 
 
-const populateStartup = async () => {
+const populateStartup = async() => {
     const creator_1 = await (user.getUserByEmail("sandra.kai@gmail.com"));
     await startup.createStartup(10000, Categories.Technology, "This electronics project is a fully functioning ventilator with the ability to provide ventilation to a patient with adjustable pumping settings with Blood oxygen monitor.", "Ventilator Using Arduino", 0, 10000, creator_1.profileID);
     await startup.createStartup(10000, Categories.Technology, "A virtual doctor robot that allows a doctor to virtually move around at a remote location at will and even talk to people at remote location as desired.", "IOT Virtual Doctor Robot", 0, 10000, creator_1.profileID);
@@ -51,7 +54,7 @@ const populateStartup = async () => {
     await startup.createStartup(10000, Categories.Technology, "We have been advised to wash hands regularly during the pandemic, but can we afford to waste so much water for handwash. Well here is a new age fog handwash machine that saves 95% water.", "Dry Handwash using Fog to Save Water", 0, 10000, creator_1.profileID);
     await startup.createStartup(10000, Categories.Technology, "A thermal screening drone with live camera monitor as well as thermal screening using Raspberry Pi to check heating in towers, solar panels, tall structures and more.", "Ras Pi Thermal Screening Drone", 0, 10000, creator_1.profileID);
     await startup.createStartup(10000, Categories.Technology, "We design a 360 degree disinfection box using ultraviolet sterilization by UV-C technology proven to deactivate coronaviruses, with timer and safety shutoff settings.", "Arduino CoVid Disinfection Box", 0, 10000, creator_1.profileID);
-    
+
 
     const creator_2 = await (user.getUserByEmail("kate.gordon@gmail.com"));
     await startup.createStartup(10000, Categories["Food and Craft"], "Make these paper pumpkins to decorate your home or classroom for Halloween or autumn. You can put them on tables, hang them or string smaller paper pumpkins together into a Halloween garland.", "3D Paper Pumpkin", 0, 10000, creator_2.profileID);
@@ -77,7 +80,7 @@ const populateStartup = async () => {
     await startup.createStartup(10000, Categories.Medical, "BenevolentAI has created algorithms that scour research papers, clinical trial results and other sources of biomedical information", "Research AI", 0, 10000, creator_4.profileID);
     await startup.createStartup(10000, Categories.Medical, "personalized 3-D models that can be rotated and zoomed into, so doctors can simulate various approaches on screens", "3-D digital hearts", 0, 10000, creator_4.profileID);
 
-    const creator_5 = await(user.getUserByEmail("barbara.colins@gmail.com"));
+    const creator_5 = await (user.getUserByEmail("barbara.colins@gmail.com"));
     await startup.createStartup(10000, Categories["Music and Arts"], "This ingenious smoothie maker takes the waveforms of different tracks, before categorising them as either ‘sentimental’, ‘romantic’, ‘happy’ or ‘sad’ and matching them to ‘corresponding’-ish flavours such as sweet, salty and sour etc", "Tasty Music", 0, 10000, creator_5.profileID);
     await startup.createStartup(10000, Categories["Music and Arts"], "If you have a tattoo and you, or someone else, has the Skin Motion app on their phone – you can point the phone at the tattoo and hear the real audio file played back", "Soundwave Tattoo", 0, 10000, creator_5.profileID);
     await startup.createStartup(10000, Categories["Music and Arts"], "directs sound in one direction, so anyone directly against the sound can hear it but others cannot hear it that well", "Directed Speaker", 0, 10000, creator_5.profileID);
@@ -87,48 +90,47 @@ const populateStartup = async () => {
 
 }
 
-const populateUser = async () =>
-{
-    await user.createUser("Josh", "Murry", 25, "data scientist", "josh.murry@gmail.com", "0123456789", 
-    "MCA with distinction and seven years of experience as a data scientist.", "jOshIsMYRry1!");
-    
-    await user.createUser("Robert", "Laurence", 25, "business analyst", "robert.laurence@gmail.com", "7370312696", 
-    "MBA with seven years of experience in budgeting, forecasting and financial modelling. ","h9VC9PMG");
+const populateUser = async() => {
+    await user.createUser("Josh", "Murry", 25, "data scientist", "josh.murry@gmail.com", "0123456789",
+        "MCA with distinction and seven years of experience as a data scientist.", "jOshIsMYRry1!");
 
-    await user.createUser("Rachel", "Isidor", 32, "nurse", "rachel.isidor@gmail.com", "0827966893", 
-    "10 years of experience in City Hospital with a certificate in nursing and midwife training. ", "uMXWGRfe");
+    await user.createUser("Robert", "Laurence", 25, "business analyst", "robert.laurence@gmail.com", "7370312696",
+        "MBA with seven years of experience in budgeting, forecasting and financial modelling. ", "h9VC9PMG");
 
-    await user.createUser("Tim", "Johnson", 52, "accountant", "tim.johnson@gmail.com", "6134108481", 
-    "1st class M.Com, ICWA certified accountant with seven years of experience.","BzGMsUbN");
+    await user.createUser("Rachel", "Isidor", 32, "nurse", "rachel.isidor@gmail.com", "0827966893",
+        "10 years of experience in City Hospital with a certificate in nursing and midwife training. ", "uMXWGRfe");
 
-    await user.createUser("Gerry", "Green", 45, "marketing manager", "gerry.green@gmail.com", "9333725477", 
-    "Expert digital marketing professional with 13 years' experience.","7t3xCp9n");
+    await user.createUser("Tim", "Johnson", 52, "accountant", "tim.johnson@gmail.com", "6134108481",
+        "1st class M.Com, ICWA certified accountant with seven years of experience.", "BzGMsUbN");
 
-    await user.createUser("Sandra", "Kai", 29, "IT specialist", "sandra.kai@gmail.com", "1279136416", 
-    "Problem-solving information technology specialist with six years of experience","3pCXPMFd");
+    await user.createUser("Gerry", "Green", 45, "marketing manager", "gerry.green@gmail.com", "9333725477",
+        "Expert digital marketing professional with 13 years' experience.", "7t3xCp9n");
 
-    await user.createUser("Samuel", "Berry", 46, "physician", "samuel.berry@gmail.com", "5418248364", 
-    "A professional and detail-oriented physician with over seven years of experience in cardiology","yZ9jhvSn");
+    await user.createUser("Sandra", "Kai", 29, "IT specialist", "sandra.kai@gmail.com", "1279136416",
+        "Problem-solving information technology specialist with six years of experience", "3pCXPMFd");
 
-    await user.createUser("Gabriel", "Sanders", 37, "teacher", "gabriel.sanders@gmail.com", "8246481444", 
-    "Engaging and encouraging teaching professional who provides a strong educational experience to 2nd-grade students","NCgqMdHD");
+    await user.createUser("Samuel", "Berry", 46, "physician", "samuel.berry@gmail.com", "5418248364",
+        "A professional and detail-oriented physician with over seven years of experience in cardiology", "yZ9jhvSn");
 
-    await user.createUser("Kate", "Gordon", 28, "cheff", "kate.gordon@gmail.com", "5660456566", 
-    "Self-motivated Chef who leads by example.","AMEXxE4z");
+    await user.createUser("Gabriel", "Sanders", 37, "teacher", "gabriel.sanders@gmail.com", "8246481444",
+        "Engaging and encouraging teaching professional who provides a strong educational experience to 2nd-grade students", "NCgqMdHD");
 
-    await user.createUser("Barbara", "Colins", 30, "musician", "barbara.colins@gmail.com", "1787831102", 
-    "Proffecional pianist with over 7 years of experience","6yegXYzc");
+    await user.createUser("Kate", "Gordon", 28, "cheff", "kate.gordon@gmail.com", "5660456566",
+        "Self-motivated Chef who leads by example.", "AMEXxE4z");
+
+    await user.createUser("Barbara", "Colins", 30, "musician", "barbara.colins@gmail.com", "1787831102",
+        "Proffecional pianist with over 7 years of experience", "6yegXYzc");
 
 }
 
 
 (async() => {
     try {
-        createRelationships(); 
-        await sqInst.sync({force : true});
+        createRelationships();
+        await sqInst.sync({ force: true });
         await populateUser();
         await populateStartup();
-        
+
         app.listen(process.env.PORT, () => {
             console.log(`Started server`);
         });

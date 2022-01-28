@@ -4,17 +4,6 @@ const { ProjectService } = require("../service/project-service");
 const projectService = new ProjectService();
 
 class PaymentService {
-    async createInvestmentOrder(investedAmount, investmentType, investorID, startupID) {
-        const investmentOrder = InvestmentOrder.build({
-            investedAmount: investedAmount,
-            investmentType: investmentType,
-            userID: investorID,
-            startupID: startupID
-        });
-        investmentOrder.save();
-    }
-
-
     async getInvestmentOrderByID(ID) {
         const investmentOrderInst = await InvestmentOrder.findOne({ where: { orderID: ID } });
         const investmentOrder = JSON.parse(JSON.stringify(investmentOrderInst));
@@ -29,13 +18,23 @@ class PaymentService {
         if (availableShares > 0) {
             startupProject.availableShares = availableShares;
         } else {
-            throw "Not enough shares"
+            return
         }
 
         startupProject.moneyRaised += amount;
-        await projectService.updateStartupProject(startupProject);
-        const order = await createInvestmentOrder(amount, "buy", userID, startupProject.ID);
-        return JSON.parse(JSON.stringify(order));
+        await projectService.updateStartupProject(startupProject, startupId);
+        this.createInvestmentOrder(amount, "buy", userID, startupId);
+    }
+
+    async createInvestmentOrder(investedAmount, investmentType, investorID, startupID) {
+        const investmentOrder = InvestmentOrder.build({
+            investedAmount: investedAmount,
+            investmentType: investmentType,
+            userID: investorID,
+            startupID: startupID
+        });
+
+        await investmentOrder.save();
     }
 }
 

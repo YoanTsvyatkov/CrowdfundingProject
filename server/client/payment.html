@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy cool new product</title>
+    <script src="./script/payment.js" defer></script>
 </head>
-  <body>
-    <form action="http://localhost:3000/api/checkout" method="POST">
-      <button type="submit">Checkout</button>
+
+<body>
+    <form id="myForm">
+        <ul>
+            <li>
+                <label for="name">Project title:</label>
+                <input type="text" id="title" name="projectTitle" />
+            </li>
+            <li>
+                <label for="amount">Amount: </label>
+                <input type="text" id="amount" name="amount" />
+            </li>
+            <li>
+                <label for="startup_id">Startup id:</label>
+                <input type="text" id="startup_id" name="startup_id" />
+            </li>
+            <li>
+                <label for="user_id">User id:</label>
+                <input type="text" id="user_id" name="user_id" />
+            </li>
+            <li>
+                <input type="submit" value="Pay">
+            </li>
+        </ul>
     </form>
-  </body>
+</body>
+
 </html>
