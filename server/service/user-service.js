@@ -15,6 +15,7 @@ class UserService {
         });
         await user.validate();
         await user.save();
+        console.log("saving user")
 
         return JSON.parse(JSON.stringify(user))
     }
