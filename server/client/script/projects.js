@@ -1,4 +1,5 @@
 const projectList = document.getElementById("project-list-container");
+const allProjectsOption = document.getElementById("allProjectsOption");
 const technologyOption = document.getElementById("technologyOption");
 const medicalOption = document.getElementById("medicalOption");
 const foodAndCraftOption = document.getElementById("foodAndCraftOption");
@@ -6,6 +7,13 @@ const gamesAndFilmsOption = document.getElementById("gamesAndFilmsOption");
 const musicAndArtsOption = document.getElementById("musicAndArtsOption");
 
 displayAllProjects()
+
+if (allProjectsOption) {
+  allProjectsOption.addEventListener("click", function () {
+    projectList.innerHTML = ""
+    displayAllProjects();
+  });
+}
 
 if (technologyOption) {
   technologyOption.addEventListener("click", function () {
