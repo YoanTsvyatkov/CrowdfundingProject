@@ -15,7 +15,7 @@ class ProjectService {
             descriptionOfIdea: descriptionOfIdea,
             projectTitle: projectTitle,
             moneyRaised: moneyRaised,
-            sharesIssue: sharesIssued,
+            sharesIssued: sharesIssued,
             priceOfOneShare: priceOfOneShare,
             availableShares: sharesIssued,
             creatorID: creatorID
