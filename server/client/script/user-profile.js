@@ -21,8 +21,6 @@ async function fetchProfileData() {
 
 }
 
-
-
 async function setProfileData() {
     const user = await fetchProfileData();
     const userName = document.getElementById("first-name");
