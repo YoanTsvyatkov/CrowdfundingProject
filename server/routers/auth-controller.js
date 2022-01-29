@@ -1,7 +1,7 @@
 const { Router } = require("express");
-const bcrypt = require("bcryptjs");
 const { signToken } = require("../util/jwt.js");
 const { UserService } = require("../service/user-service");
+const bcrypt = require("bcryptjs");
 
 const authController = Router();
 const userService = new UserService();
@@ -43,7 +43,6 @@ authController.post("/register", async(req, res) => {
         if (user) {
             return res.sendStatus(400);
         }
-        const password = await bcrypt.hash(req.body.password, 10)
         const newUser = await userService.createUser(
             req.body.firstName,
             req.body.lastName,
@@ -52,7 +51,7 @@ authController.post("/register", async(req, res) => {
             req.body.email,
             req.body.phoneNumber,
             req.body.profileDescription,
-            password
+            req.body.password
         )
         const token = signToken(newUser.email, newUser.password, "24h")
 

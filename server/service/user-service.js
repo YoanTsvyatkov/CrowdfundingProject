@@ -1,8 +1,10 @@
 const { User } = require("../model/User")
+const bcrypt = require("bcryptjs");
 
 class UserService {
     async createUser(firstName, lastName, age, occupation, email, phoneNumber, profileDescription,
         password) {
+        const hashedPassword = await bcrypt.hash(password, 10)
         const user = User.build({
             firstName: firstName,
             lastName: lastName,
@@ -11,11 +13,10 @@ class UserService {
             email: email,
             phoneNumber: phoneNumber,
             profileDescription: profileDescription,
-            password: password
+            password: hashedPassword
         });
         await user.validate();
         await user.save();
-        console.log("saving user")
 
         return JSON.parse(JSON.stringify(user))
     }

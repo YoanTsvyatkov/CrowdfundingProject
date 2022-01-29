@@ -20,8 +20,8 @@ paymentController.post("/checkout", async(req, res) => {
             quantity: 1,
         }, ],
         mode: 'payment',
-        success_url: 'https://example.com/success',
-        cancel_url: 'https://example.com/cancel',
+        success_url: 'http://localhost:3000/success_transaction.html',
+        cancel_url: 'http://localhost:3000/error_transaction.html',
         metadata: { startupId: req.body.startupId, userId: req.body.userId }
     });
 
