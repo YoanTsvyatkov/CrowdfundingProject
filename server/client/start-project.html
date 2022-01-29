@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/start-project.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <script src="./script/general.js" defer></script>
+    <script src="./script/start-project.js" defer></script>
+    <title>CROWDFUNDIGO</title>
+</head>
+
+<body>
+    <header class="topNavigation">
+        <div class="leftNavOptions">
+            <h4 style="padding: 0px;"><a href="./start-project.html" target=_parent>Start a project</a></h4>
+        </div>
+        <div class="rightNavOptionsUnauthorized">
+            <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
+            <a href="./register.html" target="_parent">
+                <button id="signUpButton">Sign Up</button>
+            </a>
+        </div>
+
+        <div class="rightNavOptionsAuthorized">
+            <h4 style="padding-right: 25px;">
+                <a href="#" target=_parent>
+                    <img src='images/user.png' style='vertical-align: top; padding-right: 5px;' width="30px" /> Profile
+                </a>
+            </h4>
+            <a href="./register.html" target="_parent">
+                <button id="logOutButton">Log Out</button>
+            </a>
+        </div>
+    </header>
+
+    <!-- header up -->
+    <object type="text/html" data="./navigation.html" height="240" width="100%"></object>
+
+    <form id="startProject-form" action="#" method="POST">
+        <div class="mainContainer">
+            <div class="inputs">
+                <center>Select a Category:</center>
+                <select name="category" id="category">
+                    <option value="tech">Technology</option>
+                    <option value="med">Medical</option>
+                    <option value="foodAndCraft">Food and Craft</option>
+                    <option value="gamesAndFilms">Games and Films</option>
+                    <option value="musicAndArts">Music and Arts</option>
+                </select>
+
+                <center>Describe what your project is about.</center>
+                <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription"
+                    required /></textarea>
+
+                <center>What is the name of your project?</center>
+                <input id="projectName" type="text" placeholder="Project Name" name="projectName" required />
+
+                <center>What is your investment goal?</center>
+                <input id="goal" type="number" placeholder="Investment Goal" name="investmentGoal" required />
+
+                <center>How many shares do you want to issue?</center>
+                <input id="sharesIssued" type="number" placeholder="Issues shared" name="issuesShared" required />
+
+                <div id="error">
+                    <p id="error-message" style="color: brown;"></p>
+                </div>
+
+                <button id="createProjectButton" type="submit">Create Project</button>
+            </div>
+        </div>
+    </form>
+
+    <object type="text/html" data="./footer.html" height="240"></object>
+</body>
+</html>
