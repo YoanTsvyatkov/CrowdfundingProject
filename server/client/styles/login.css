@@ -27,7 +27,7 @@ input {
     border-radius: 18px;
     font-weight: 600;
     display: block;
-    margin-top: auto;
+    margin-top: 5%;
     margin-bottom: auto;
     margin-right: auto;
     margin-left: auto;
@@ -87,7 +87,7 @@ input {
     margin-right: 7px;
 }
 
-#signUpButton {
+#signUpButtonLogin {
     color: #813772;
 }
 

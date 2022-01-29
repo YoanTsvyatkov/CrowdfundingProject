@@ -31,7 +31,7 @@ function initRouters(path, routhers) {
 }
 
 app.use(bodyParser.json())
-initRouters("/api/", [projectController, authController, userController]);
+initRouters("/api/", [projectController, authController, userController, paymentController]);
 
 app.all("/*", (req, res) => {
     res.sendStatus(404);

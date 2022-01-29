@@ -8,15 +8,14 @@
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/header.css">
     <script src="./script/general.js" defer></script>
-    <title>CROWDFUNDIGO</title>
     <script src="./script/login.js" defer></script>
+    <title>CROWDFUNDIGO</title>
 </head>
 
 <body>
     <header class="topNavigation">
         <div class="leftNavOptions">
-            <h4 style="padding-right: 25px;" onmouseover="openNav()"> Discover </h4>
-            <h4 style="padding: 0px;"><a href="./startProject.html" target=_parent>Start a project</a></h4>
+            <h4 style="padding: 0px;"><a href="./start-project.html" target=_parent>Start a project</a></h4>
         </div>
         <div class="rightNavOptionsUnauthorized">
             <h4 style="padding-right: 25px;"><a href="./login.html" target=_parent>Log In</a></h4>
@@ -37,17 +36,6 @@
         </div>
     </header>
 
-    <div id="myNav" class="overlay" onmouseleave="closeNav()">
-        <h3 class="title">Categories</h3>
-        <div class="overlay-content">
-            <a id="technologyOption" href="#">Technology</a>
-            <a id="medicalOption" href="#">Medical</a>
-            <a id="foodAndCraftOption" href="#">Food and Craft</a>
-            <a id="gamesAndFilmsOption" href="#">Games and Films</a>
-            <a id="musicAndArtsOption" href="#">Music and Arts</a>
-        </div>
-    </div>
-
     <!-- header up -->
 
     <form id="login-form" action="#" method="post">
@@ -62,12 +50,12 @@
             <button id="loginButton" type="submit">Log in</button>
             <div class="goToSignUp">
                 <h5 id="signUpLabel">New to CROWDFUNDIGO?</h5>
-                <h5 id="signUpButton"><a href="./register.html" target="_parent">Sign Up</a></h5>
+                <h5 id="signUpButtonLogin"><a href="./register.html" target="_parent">Sign Up</a></h5>
             </div>
         </div>
     </form>
 
-    <object type="text/html" data="./footer.html" height="240">
+    <object type="text/html" data="./footer.html" height="240"></object>
 </body>
 
 </html>
