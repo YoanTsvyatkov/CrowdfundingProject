@@ -91,6 +91,7 @@ function addProject(project) {
   details.id = "project-details"
   details.src = "images/info.png"
 
+
   const optionsDiv = document.createElement("div")
   optionsDiv.id = "options-project"
 
@@ -116,10 +117,13 @@ function addProject(project) {
   newDiv.appendChild(details);
   newDiv.appendChild(projectName);
   newDiv.appendChild(projectDescription);
-  newDiv.appendChild(optionsDiv);
+  if (localStorage.getItem("id") === project.creatorID) {
+    newDiv.appendChild(optionsDiv);
+  }
   projectList.appendChild(newDiv);
   addDeleteProjectListener(newDiv, project.ID, deleteBtn);
-  addDetailsProjectListener(project, details)
+  addDetailsProjectListener(project, details);
+  addEditProjectListener(editBtn, project);
 }
 
 function addDetailsProjectListener(project, details) {
@@ -148,6 +152,20 @@ function addDeleteProjectListener(listElement, projectId, deleteButton) {
     } catch (err) {
       alert("Something went wrong");
     }
+  });
+}
+
+function addEditProjectListener(editButton, project) {
+  editButton.addEventListener("click", (event) => {
+    localStorage.setItem("editProjectId", project.ID);
+    localStorage.setItem("editProjectTitle", project.projectTitle);
+    localStorage.setItem("editProjectDescription", project.descriptionOfIdea);
+    localStorage.setItem("editCategory", project.category);
+    window.location.href = "edit-project.html";
+
+    // selectedProjectId = projectId;
+    // modalProjectName.value = `${projectDiv.children[0].innerHTML}`;
+    // selectedProjectDiv = projectDiv;
   });
 }
 
