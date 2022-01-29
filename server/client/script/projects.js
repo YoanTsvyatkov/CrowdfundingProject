@@ -124,6 +124,7 @@ function addProject(project) {
 
 function addDetailsProjectListener(project, details) {
   details.addEventListener("click", function () {
+    localStorage.setItem("startupId", project.ID);
     localStorage.setItem("projectTitle", project.projectTitle);
     localStorage.setItem("projectDescription", project.descriptionOfIdea);
     localStorage.setItem("category", project.category);

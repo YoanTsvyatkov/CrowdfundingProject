@@ -27,13 +27,12 @@ a {
   border-radius: 18px;
   font-weight: 600;
   display: block;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
   margin-right: auto;
   margin-left: auto;
   justify-self: center;
-  width: 75%;
-  height: 50%;
+  width: 60%;
 }
 
 .mainContainter {
@@ -42,30 +41,10 @@ a {
 
 }
 
-/* #mainSectionTitle {
-  font-size: 72px;
-  margin-top: 5%;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.mainNavOptions {
-  font-size: 16px;
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.mainNavOptions h5 {
-  margin-top: 0%;
-
-} */
-
 .presentingSection {
   display: flex;
-  margin: 2%;
+  margin: 5%;
+  margin-left: 10%;
   justify-content: space-between;
 
 }
