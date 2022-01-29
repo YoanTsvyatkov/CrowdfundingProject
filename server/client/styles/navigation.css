@@ -28,14 +28,15 @@ a {
     font-size: 16px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-left: 6%;
     margin-right: 6%;
     cursor: pointer;
 }
 
 .mainNavOptions h4 {
-    margin-right: 2%;
+    margin-right: 4%;
+    margin-left: 4%;
     cursor: pointer;
 }
 

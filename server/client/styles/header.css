@@ -1,13 +1,13 @@
+header a{
+  color: white;
+  text-decoration: none;
+}
+
 h4 {
     margin-top: 5%;
     margin-bottom: 0%;
-    color: white;
   }
   
-  a {
-    color: white;
-    text-decoration: none;
-  }
   
   .topNavigation {
     margin-left: 25px;
