@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/start-project.css">
     <link rel="stylesheet" href="./styles/header.css">
     <script src="./script/general.js" defer></script>
-    <script src="./script/start-project.js" defer></script>
+    <script src="./script/edit-project.js" defer></script>
     <title>CROWDFUNDIGO</title>
 </head>
 
@@ -39,35 +39,28 @@
     <!-- header up -->
     <object type="text/html" data="./navigation.html" height="200" width="100%"></object>
 
-    <form id="startProject-form" action="#" method="POST">
+    <form id="edit-project-form" action="#" method="PUT">
         <div class="mainContainer">
             <div class="inputs">
-                <select name="category" id="category">
-                    <option value="tech">Technology</option>
-                    <option value="med">Medical</option>
-                    <option value="foodAndCraft">Food and Craft</option>
-                    <option value="gamesAndFilms">Games and Films</option>
-                    <option value="musicAndArts">Music and Arts</option>
+                <select name="edit-category" id="edit-category">
+                    <option value="1">Technology</option>
+                    <option value="2">Medical</option>
+                    <option value="3">Food and Craft</option>
+                    <option value="4">Games and Films</option>
+                    <option value="5">Music and Arts</option>
                 </select>
 
                 <center>Describe what your project is about.</center>
-                <textarea id="description" rows="15" placeholder="Project Description" name="projectDescription"
-                    required /></textarea>
+                <textarea id="edit-description" rows="15" placeholder="Project Description" name="projectDescription" required /></textarea>
 
                 <center>What is the name of your project?</center>
-                <input id="projectName" type="text" placeholder="Project Name" name="projectName" required />
-
-                <center>What is your investment goal?</center>
-                <input id="goal" type="number" placeholder="Investment Goal" name="investmentGoal" required />
-
-                <center>How many shares do you want to issue?</center>
-                <input id="sharesIssued" type="number" placeholder="Issues shared" name="issuesShared" required />
+                <input id="edit-project-name" type="text" placeholder="Project Name" name="projectName" required />
 
                 <div id="error">
                     <p id="error-message" style="color: brown;"></p>
                 </div>
 
-                <button id="createProjectButton" type="submit">Create Project</button>
+                <button id="saveChangesButton" type="submit">Save Project</button>
             </div>
         </div>
     </form>

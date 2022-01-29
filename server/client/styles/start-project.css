@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
 }
 
-input, #category, textarea{
+input, #category, #edit-category, textarea{
     height: 5vh;
     border-radius: 24px;
     border-color: #813772;
@@ -18,7 +18,7 @@ input, #category, textarea{
     padding-right: 3%;
 }
 
-#category {
+#category, #edit-category{
     height: 6vh;
 }
 
@@ -27,7 +27,7 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#startProject-form {
+#startProject-form, #edit-project-form {
     background: white;
     border-radius: 18px;
     font-weight: 600;
@@ -74,7 +74,7 @@ center {
     margin-bottom: 15px;
 }
 
-#createProjectButton {
+#createProjectButton, #saveChangesButton {
     width: 100%;
     height: 6vh;
     bottom: 0;
