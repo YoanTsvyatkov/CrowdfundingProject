@@ -34,7 +34,7 @@ authController.post("/login", async(req, res) => {
 authController.post("/register", async(req, res) => {
     if (!req.body.firstName || !req.body.lastName || !req.body.password ||
         !req.body.age || !req.body.occupation || !req.body.email || !req.body.phoneNumber ||
-        !!req.body.profileDesription) {
+        !req.body.profileDescription) {
         return res.sendStatus(400);
     }
 
@@ -51,7 +51,7 @@ authController.post("/register", async(req, res) => {
             req.body.occupation,
             req.body.email,
             req.body.phoneNumber,
-            req.body.profileDesription,
+            req.body.profileDescription,
             password
         )
         const token = signToken(newUser.email, newUser.password, "24h")
