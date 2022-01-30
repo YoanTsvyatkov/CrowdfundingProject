@@ -1,3 +1,4 @@
+const tokenCh = localStorage.getItem("token");
 const projectList = document.getElementById("project-list-container");
 const technologyOption = document.getElementById("technologyOption");
 const medicalOption = document.getElementById("medicalOption");
@@ -117,7 +118,7 @@ function addProject(project) {
   newDiv.appendChild(details);
   newDiv.appendChild(projectName);
   newDiv.appendChild(projectDescription);
-  if (localStorage.getItem("id") === project.creatorID) {
+  if ((localStorage.getItem("id") === project.creatorID) && tokenCh != null) {
     newDiv.appendChild(optionsDiv);
   }
   projectList.appendChild(newDiv);

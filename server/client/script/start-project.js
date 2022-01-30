@@ -10,7 +10,7 @@ const userId = localStorage.getItem("id");
 
 if(token == null) {
     alert("Sorry, you cannot create a project, without being logged in!");
-    window.location.href = "register.html";
+    window.location.href = "login.html";
 }
 
 if (startProjectForm != null) {
